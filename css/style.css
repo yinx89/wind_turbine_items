@@ -1,0 +1,52 @@
+.formulario form {
+  background: rgba(45, 45, 125, 0.58);
+  color: white;
+  padding: 23px;
+  box-shadow: 10px 10px 5px rgba(6, 1, 1, 0.43)
+}
+
+body {
+  background-image: url("../img/2.jpg");
+  background-size: cover;
+  color: black;
+  background-repeat: no-repeat;
+  margin: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+  border-radius: 0px;
+}
+
+.form-control {
+  border-radius: 0px;
+  background-color: rgba(23, 3, 3, 0.48);
+  color: white;
+  border-radius: 1px solid #291212
+}
+
+.formulario .ml-xl-5, .mx-xl-5 {
+  opacity: 0.8;
+  margin: 12px;
+}
+
+body .page-header .navbar.navbar-light {
+  background: rgba(141, 141, 197, 0.88);
+  color: white;
+}
+
+.navbar-light .navbar-toggler {
+  background-color: white;
+}
+
+.navbar-light .navbar-brand {
+  color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}

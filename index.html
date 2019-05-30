@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <title>Challenge</title>
+
+  <link rel="stylesheet" href="Bootstrap\css\bootstrap.min.css">
+  <link rel="stylesheet" href="DataTables\datatables.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/Ajax.js"></script>
+  <script src="js/script.js"></script>
+
+  <head>
+
+  <body>
+    <div class="page-header">
+      <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="#">Challenge - Ginés Molina</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/yinx89">My Github</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="formulario card mx-xl-5">
+      <div class="card-body">
+        <form method="post" validate>
+          <p class="h4 text-center py-4">Insert the values:</p>
+          <div class="form-group">
+            <label for="defaultFormCardNameEx" class="grey-text font-weight-light">First ID number:</label>
+            <input class="form-control" type="number" id="first" placeholder="Insert the first ID number" min="1" pattern="^[0-9]+" required>
+            <br>
+            <label for="defaultFormCardEmailEx" class="grey-text font-weight-light">Last ID number:</label>
+            <input class="form-control" type="number" id="last" placeholder="Insert the last ID number" min="1" pattern="^[0-9]+" required>
+          </div>
+          <div class="text-center py-4 mt-3">
+            <button type="button" class="btn btn-outline-purple" onclick="data_ajax();">Send<i class="fa fa-paper-plane-o ml-2"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br>
+    <div id="mostrar" class="card mx-xl-5" style="display:none"></div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Help</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h4>First request</h4>
+            <p>A wind turbine has 100 items on it, each get inspected. This is an application that outputs numbers from 1 to 100, but for multiple of three print "Coating Damage" instead of the number and for the multiple of five print "Lightning
+              Strike" instead of the number. For numbers which are multiple of both three and five print "Coating Damage and Lightning Strike" instead of the number. </p>
+
+            <h4>Improvements</h4>
+            <ul>- Added the possibility of entering a lower and upper number range in order to execute the function in a different number range and data validation has been implemented.</ul>
+            <ul>- Good UI in which the table is shown if the numerical values are correct in ascending order in which an ID can be identified and the value corresponding to the output of the expected function. In addition, the table offers the
+              possibility of pagination, search by element, sort by elements and sorting of columns by clicking on the title of the corresponding column.</ul>
+            <ul>- No framework is used for PHP but JQuery libraries and datatables are used in addition to Bootstrap to simplify the process and gain in viewability.</ul>
+            <ul>- The data_ajax() function is used in Javascript to request the data through AJAX and XMLHTTPRequest.</ul>
+            <ul>- The application is responsive and can run on any device thus finding the correct representation of all adapted elements.</ul>
+            <ul>- It is divided into the different folders: Bootstrap, DataTables, js, functions, css and img.</ul>
+
+            <h4>Step by step</h4>
+            <ul>1. First of all, think about technologies and languages that could help me to develop the application and contribute to the goals I have set myself. We must have PHP and show in HTML, besides that I have seen interesting to use AJAX
+              through XMLHTTPRequest to receive the data and to be able to show them in a dynamic way with Javascript and the libraries of JQuery and DataTables. For the visual aspect I thought that Bootstrap would be ideal for its simplicity and
+              eye-catching.</ul>
+            <ul>2. Once I am clear about the technologies involved I created the functionality in calculate.php to show a first version of code without the use of DataTables with a simple table without pagination according to two numerical values
+              established by default.</ul>
+            <ul>3. Then I decided to include the section to enter the data and thus establish a lower and higher margin at the same time I have established the data collection process with Javascript and XMLHTTPRequest.</ul>
+            <ul>4. Fourthly, I have modified the functionality of calculate.php so that it would be adapted to what DataTables required for its correct operation.</ul>
+            <ul>5. In fifth place I have established the parameters that allowed me to show the table in a clean way with all the functionality through DataTables.</ul>
+            <ul>6. Then I improved the visualization through Bootstrap adding the header element in addition to the best layout of the modules.</ul>
+            <ul>7. And finally I cleaned the code and documented what I considered important.</ul>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="Bootstrap\js\bootstrap.min.js"></script>
+  <script src="DataTables\datatables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable({
+        'processing': true,
+        'language': {
+          'loadingRecords': '&nbsp;',
+          'processing': 'Loading...'
+        },
+        "columns": [{
+            "data": "ID"
+          },
+          {
+            "data": "Value"
+          }
+        ]
+      });
+    });
+  </script>
+
+</html>
